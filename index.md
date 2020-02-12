@@ -3,5 +3,4 @@ Hello and welcome to this blog. Edit the `index.md` file to change this content.
 ![Image of fast.ai logo](images/logo.png)
 
 ## This is a title
-
-And you can include links, like this [link to fast.ai](https://www.fast.ai). Posts will appear after this file. 
+大家好，这里是月半仁的个人博客，以后想在这上面做一些学习的笔记之类的。 
