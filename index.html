@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>音频播放器 - test_evaluation</title>
+<style>
+  body { font-family: sans-serif; margin: 20px; }
+  button { display: block; margin-bottom: 10px; padding: 10px 15px; cursor: pointer; }
+  audio { margin-top: 20px; width: 100%; max-width: 600px; }
+</style>
+</head>
+<body>
+
+<h1>音频文件播放器</h1>
+<p>点击下面的按钮播放对应的音频文件：</p>
+
+<button onclick="playAudioByName('1089_134691_000025_000003.wav')">播放 1089_134691_000025_000003.wav</button>
+<button onclick="playAudioByName('1995_1837_000013_000000.wav')">播放 1995_1837_000013_000000.wav</button>
+<button onclick="playAudioByName('3570_5694_000011_000001.wav')">播放 3570_5694_000011_000001.wav</button>
+<button onclick="playAudioByName('4446_2273_000019_000001.wav')">播放 4446_2273_000019_000001.wav</button>
+<button onclick="playAudioByName('5683_32866_000011_000000.wav')">播放 5683_32866_000011_000000.wav</button>
+<button onclick="playAudioByName('5683_32879_000013_000000.wav')">播放 5683_32879_000013_000000.wav</button>
+<button onclick="playAudioByName('7127_75946_000043_000000.wav')">播放 7127_75946_000043_000000.wav</button>
+<button onclick="playAudioByName('7176_88083_000023_000001.wav')">播放 7176_88083_000023_000001.wav</button>
+<button onclick="playAudioByName('7176_92135_000003_000004.wav')">播放 7176_92135_000003_000004.wav</button>
+<button onclick="playAudioByName('8555_284449_000020_000002.wav')">播放 8555_284449_000020_000002.wav</button>
+
+<audio id="audioPlayer" controls>
+  您的浏览器不支持 HTML5 audio 标签。
+</audio>
+
+<script>
+  const audioPlayer = document.getElementById('audioPlayer');
+  // 您的 GitHub 仓库中 GT 文件夹的原始文件基础 URL
+  // 请确保 'main' 是您的主分支名，如果不是，请相应修改 (例如 'master')
+  const rawBaseUrl = 'https://raw.githubusercontent.com/dzr1026/test_evaluation/main/GT/';
+
+  function playAudioByName(fileName) {
+    const audioSrc = rawBaseUrl + fileName;
+    audioPlayer.src = audioSrc;
+    audioPlayer.play()
+      .then(() => {
+        console.log("开始播放: " + audioSrc);
+      })
+      .catch(error => {
+        console.error("播放错误: " + audioSrc, error);
+        // 可以向用户显示一个错误消息
+        alert("无法播放音频文件: " + fileName + "\n请检查文件是否存在且浏览器支持该音频格式。");
+      });
+  }
+</script>
+
+</body>
+</html>
